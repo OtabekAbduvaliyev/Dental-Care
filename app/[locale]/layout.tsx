@@ -5,6 +5,7 @@ import "../globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { unstable_setRequestLocale } from 'next-intl/server';
+import JsonLd from '../components/JsonLd';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -46,6 +47,9 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
+      <head>
+        <JsonLd />
+      </head>
       <body className={inter.className}>
         <NextIntlClientProvider messages={messages} locale={locale}>
           <div className="flex flex-col min-h-screen">

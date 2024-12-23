@@ -27,12 +27,17 @@ export default function ContactForm({ isSubmitting, setIsSubmitting, submitStatu
 
   // Reset status message after 5 seconds
   useEffect(() => {
+    let timer: NodeJS.Timeout;
     if (submitStatus) {
-      const timer = setTimeout(() => {
+      timer = setTimeout(() => {
         setSubmitStatus(null);
       }, 5000);
-      return () => clearTimeout(timer);
     }
+    return () => {
+      if (timer) {
+        clearTimeout(timer);
+      }
+    };
   }, [submitStatus, setSubmitStatus]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

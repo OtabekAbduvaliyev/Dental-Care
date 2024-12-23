@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { AppointmentData } from '../../types/appointment';
+import { useEffect } from 'react';
 
 interface AppoitmentModalProps {
   showModal: boolean;
@@ -23,6 +24,18 @@ export default function AppoitmentModal({
   setSubmitStatus
 }: AppoitmentModalProps) {
   const t = useTranslations('Index');
+
+  useEffect(() => {
+    if (!showModal) {
+      // Reset form data when modal is closed
+      setAppointmentData({
+        name: '',
+        phone: '',
+      });
+      // Reset any status messages
+      setSubmitStatus(null);
+    }
+  }, [showModal, setAppointmentData, setSubmitStatus]);
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -106,7 +119,7 @@ export default function AppoitmentModal({
               onClick={() => setShowModal(false)}
               className="text-gray-400 hover:text-gray-500"
             >
-              <span className="sr-only">{t('close')}</span>
+              <span className="sr-only">{t('common.close')}</span>
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
