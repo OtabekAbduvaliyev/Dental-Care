@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import "./globals.css";
-import JsonLd from './components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'DentCare - Professional Tish Klinikasi',
@@ -8,12 +7,12 @@ export const metadata: Metadata = {
   keywords: 'tish shifokori, tish klinikasi, tish parvarishi, tishlarni tozalash, ortodontiya, kosmetik stomatologiya, shoshilinch tish shifokori',
   authors: [{ name: 'DentCare' }],
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
+    icon: '/images/logo.jpg',
+    shortcut: '/images/logo.jpg',
+    apple: '/images/logo.jpg',
     other: {
       rel: 'apple-touch-icon-precomposed',
-      url: '/apple-touch-icon-precomposed.png',
+      url: '/images/logo.jpg',
     },
   },
   openGraph: {
@@ -24,7 +23,7 @@ export const metadata: Metadata = {
     siteName: 'DentCare',
     images: [
       {
-        url: '/og-image.jpg',
+        url: '/images/view.jpg',
         width: 1200,
         height: 630,
         alt: 'DentCare Tish Klinikasi',
@@ -35,7 +34,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'DentCare - Professional Tish Klinikasi',
     description: 'Umumiy stomatologiya, kosmetik stomatologiya, ortodontiya va shoshilinch tish parvarishi bo\'yicha professional xizmatlar.',
-    images: ['/twitter-image.jpg'],
+    images: ['/images/view.jpg'],
   },
   viewport: {
     width: 'device-width',
