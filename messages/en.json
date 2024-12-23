@@ -1,0 +1,44 @@
+{
+  "Index": {
+    "schedule": {
+      "title": "Schedule a Visit",
+      "name": "Full Name",
+      "phone": "Phone Number",
+      "date": "Preferred Date",
+      "time": "Preferred Time",
+      "reason": "Reason for Visit",
+      "selectDate": "Select a date",
+      "reasonPlaceholder": "Please briefly describe your dental concerns or the reason for your visit",
+      "scheduling": "Scheduling...",
+      "submit": "Schedule Visit"
+    },
+    "appointment": {
+      "title": "Book Appointment for {service}",
+      "name": "Full Name",
+      "phone": "Phone Number",
+      "submit": "Book Appointment",
+      "cancel": "Cancel",
+      "successMessage": "Your appointment request has been sent successfully!",
+      "errorMessage": "Failed to send appointment request. Please try again."
+    }
+  },
+  "Navbar": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact",
+    "bookAppointment": "Book Appointment",
+    "contactUs": "Contact Us"
+  },
+  "Home": {
+    "heroTitle": "Your Smile, Our Priority",
+    "heroSubtitle": "Experience exceptional dental care with our team of expert professionals",
+    "bookNow": "Book Now",
+    "learnMore": "Learn More"
+  },
+  "common": {
+    "cancel": "Cancel",
+    "submit": "Submit",
+    "close": "Close"
+  }
+}

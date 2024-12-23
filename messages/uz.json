@@ -1,0 +1,494 @@
+{
+  "Index": {
+    "common": {
+      "cancel": "Bekor qilish",
+      "close": "Yopish"
+    },
+    "schedule": {
+      "title": "Tashrif buyurish",
+      "name": "To'liq ism",
+      "phone": "Telefon raqam",
+      "date": "Afzal sana",
+      "time": "Afzal vaqt",
+      "reason": "Tashrif sababi",
+      "selectDate": "Sanani tanlang",
+      "reasonPlaceholder": "Iltimos, tish muammolaringiz yoki tashrifingiz sababini qisqacha tasvirlab bering",
+      "scheduling": "Rejalashtirilmoqda...",
+      "submit": "Tashrif buyurish",
+      "successMessage": "Sizning arizangiz muvaffaqiyatli yuborildi!",
+      "errorMessage": "Arizani yuborishda xatolik yuz berdi. Iltimos, qayta urinib ko'ring."
+    },
+    "appointment": {
+      "title": "{service} uchun yozilish",
+      "name": "To'liq ism",
+      "phone": "Telefon raqam",
+      "submit": "Yozilish",
+      "cancel": "Bekor qilish",
+      "successMessage": "Sizning arizangiz muvaffaqiyatli yuborildi!",
+      "errorMessage": "Arizani yuborishda xatolik yuz berdi. Iltimos, qayta urinib ko'ring."
+    }
+  },
+  "Navbar": {
+    "home": "Bosh sahifa",
+    "services": "Xizmatlar",
+    "about": "Biz haqimizda",
+    "contact": "Aloqa",
+    "bookAppointment": "Yozilish",
+    "contactUs": "Biz bilan bog'laning",
+    "team": "Jamoa",
+    "gallery": "Galereya",
+    "whyUs": "Nega biz"
+  },
+  "Home": {
+    "welcomeMessage": "Yangi bemorlarni kutib qolamiz",
+    "heroTitle": "Zamonaviy tish parvarishi",
+    "heroHighlight": "Oilangiz uchun",
+    "heroSubtitle": "Qulay va zamonaviy muhitda yuqori sifatli tish parvarishi xizmatidan bahramand bo'ling",
+    "heroImageAlt": "Zamonaviy tish klinikasi",
+    "bookNow": "Yozilish",
+    "callNow": "Hozir qo'ng'iroq qiling",
+    "openHours": "24/7 ochiq",
+    "location": "Markaziy joylashuv",
+    "statsNumber": "5000+",
+    "statsText": "Mamnun bemorlar",
+    "rating": "4.9/5",
+    "learnMore": "Ko'proq ma'lumot"
+  },
+  "Services": {
+    "sectionTitle": "Bizning xizmatlarimiz",
+    "sectionSubtitle": "Sizning ehtiyojlaringizga moslashtirilgan professional tish parvarishi",
+    "popular": "Mashhur",
+    "duration": "45-60 daqiqa",
+    "bookAppointment": "Yozilish",
+    "showMore": "Ko'proq xizmatlar",
+    "showLess": "Kamroq ko'rsatish",
+    "services": {
+      "general": {
+        "title": "Umumiy stomatologiya",
+        "description": "Tishlarni tozalash, plombalash va profilaktik davolashni o'z ichiga olgan kompleks tish parvarishi.",
+        "features": {
+          "checkups": "Muntazam tekshiruvlar",
+          "cleaning": "Tish tozalash",
+          "cavity": "Kariyes davolash"
+        },
+        "price": "99$ dan"
+      },
+      "cosmetic": {
+        "title": "Kosmetik stomatologiya",
+        "description": "Bizning zamonaviy kosmetik stomatologiya protseduralarimiz bilan tabassuningizni o'zgartiring.",
+        "features": {
+          "whitening": "Tish oqartirish",
+          "veneers": "Vinirlar",
+          "design": "Tabassum dizayni"
+        },
+        "price": "299$ dan"
+      },
+      "orthodontics": {
+        "title": "Ortodontiya",
+        "description": "Bizning ortodontik davolash usullarimiz bilan mukammal tabassumga erishing.",
+        "features": {
+          "invisible": "Ko'rinmas breketchalar",
+          "traditional": "An'anaviy breketchalar",
+          "retainers": "Reteynerlar"
+        },
+        "price": "199$ dan"
+      },
+      "surgery": {
+        "title": "Og'iz bo'shlig'i jarrohiyasi",
+        "description": "Murakkab tish muammolari uchun ekspert jarrohlik protseduralari.",
+        "features": {
+          "wisdom": "Aql tishi",
+          "implants": "Tish implantlari",
+          "root": "Kanal davolash"
+        },
+        "price": "399$ dan"
+      },
+      "emergency": {
+        "title": "Shoshilinch yordam",
+        "description": "Shoshilinch holatlar va og'riqni bartaraf etish uchun tezkor tish parvarishi.",
+        "features": {
+          "service": "24/7 xizmat",
+          "pain": "Og'riq nazorati",
+          "quick": "Tezkor davolash"
+        },
+        "price": "149$ dan"
+      },
+      "pediatric": {
+        "title": "Bolalar stomatologiyasi",
+        "description": "Bolalarga do'stona muhitda maxsus tish parvarishi.",
+        "features": {
+          "friendly": "Bolalarga do'stona",
+          "preventive": "Profilaktik parvarish",
+          "growth": "O'sish nazorati"
+        },
+        "price": "79$ dan"
+      },
+      "implants": {
+        "title": "Tish implantlari",
+        "description": "Eng zamonaviy implant texnologiyasi bilan doimiy tish almashtirish yechimlari.",
+        "features": {
+          "look": "Tabiiy ko'rinish",
+          "solution": "Umrbod yechim",
+          "planning": "3D rejalashtirish"
+        },
+        "price": "899$ dan"
+      },
+      "cleaning": {
+        "title": "Professional tozalash",
+        "description": "Optimal og'iz sog'lig'i uchun chuqur tozalash va parvarish.",
+        "features": {
+          "scaling": "Tish toshi tozalash",
+          "polishing": "Sayqallash",
+          "stain": "Dog'larni ketkazish"
+        },
+        "price": "129$ dan"
+      },
+      "tmj": {
+        "title": "TMJ davolash",
+        "description": "Jag' bo'g'imi va yuz og'rig'i buzilishlari uchun maxsus parvarish.",
+        "features": {
+          "relief": "Og'riqni yengillashtirish",
+          "therapy": "Bo'g'im terapiyasi",
+          "solutions": "Individual yechimlar"
+        },
+        "price": "249$ dan"
+      }
+    },
+    "trust": {
+      "experts": {
+        "title": "Ekspert tish shifokorlari",
+        "description": "Tish parvarishi va bemor davolashda ko'p yillik tajribaga ega yuqori malakali mutaxassislar"
+      },
+      "facility": {
+        "title": "Zamonaviy klinika",
+        "description": "Eng so'nggi uskunalar va qulay muhit"
+      },
+      "satisfaction": {
+        "title": "Bemor mamnuniyati",
+        "description": "Har bir bemor uchun muloyim, shaxsiy yondashuv"
+      }
+    }
+  },
+  "Team": {
+    "sectionTitle": "Bizning jamoa",
+    "sectionSubtitle": "Professional va tajribali mutaxassislar",
+    "members": {
+      "member1": {
+        "name": "Dr. Sara Jonson",
+        "role": "Yetakchi tish shifokori",
+        "description": "Tish davolashda ko'p yillik tajribaga ega yuqori malakali mutaxassis",
+        "specialties": {
+          "general": "Umumiy stomatologiya",
+          "preventive": "Profilaktik parvarish"
+        }
+      },
+      "member2": {
+        "name": "Dr. Maykl Chen",
+        "role": "Kosmetik mutaxassis",
+        "description": "Kosmetik stomatologiya va tabassum dizayni bo'yicha ekspert",
+        "specialties": {
+          "cosmetic": "Kosmetik",
+          "veneers": "Vinirlar"
+        }
+      },
+      "member3": {
+        "name": "Dr. Emili Martinez",
+        "role": "Bolalar tish shifokori",
+        "description": "Bolalar stomatologiyasi bo'yicha mutaxassis, bolalar uchun qulay muhit yaratadi",
+        "specialties": {
+          "pediatric": "Bolalar",
+          "prevention": "Profilaktika"
+        }
+      },
+      "member4": {
+        "name": "Dr. Jeyms Uilson",
+        "role": "Og'iz bo'shlig'i jarrohi",
+        "description": "Murakkab og'iz bo'shlig'i jarrohligi va tish implantatsiyasi bo'yicha ekspert",
+        "specialties": {
+          "surgery": "Jarrohlik",
+          "implants": "Implantlar"
+        }
+      },
+      "member5": {
+        "name": "Dr. Sofiya Rodriguez",
+        "role": "Periodontologiya mutaxassisi",
+        "description": "Milk kasalliklarini davolash va periodontal salomatlikni saqlashga ixtisoslashgan",
+        "specialties": {
+          "periodontics": "Periodontologiya",
+          "gumCare": "Milk parvarishi"
+        }
+      },
+      "member6": {
+        "name": "Dr. David Kim",
+        "role": "Endodontiya eksperti",
+        "description": "Tish kanali davolash va tish og'rig'ini boshqarish bo'yicha mutaxassis",
+        "specialties": {
+          "endodontics": "Endodontiya",
+          "rootCanal": "Tish kanali"
+        }
+      }
+    }
+  },
+  "WhyUs": {
+    "sectionTitle": "Nima uchun bizning tish klinikamizni tanlashingiz kerak?",
+    "sectionDescription": "Biz mukammallikka intilish, zamonaviy texnologiyalar va bemorga yo'naltirilgan yondashuv orqali boshqa tish klinikalaridan ajralib turamiz. Bizni tish parvarishi bo'yicha afzal tanlovga aylantirgan farqni his eting.",
+    "since": "Dan beri",
+    "features": {
+      "expert": {
+        "title": "Ekspert jamoa va ilg'or parvarish",
+        "description": "Bizning yuqori malakali mutaxassislar jamoamiz zamonaviy usullar va shaxsiy davolash rejalaridan foydalanadi. Biz faqat alomatlarni davolamasdan, uzoq muddatli kompleks tish yechimlari taqdim etamiz.",
+        "stats": {
+          "specialists": {
+            "value": "15+",
+            "label": "Mutaxassislar"
+          },
+          "success": {
+            "value": "98%",
+            "label": "Muvaffaqiyat"
+          }
+        }
+      },
+      "technology": {
+        "title": "Eng so'nggi texnologiya va uskunalar",
+        "description": "Biz boshqa klinikalarda bo'lmagan zamonaviy texnologiyalarga sarmoya kiritamiz. 3D tasvirlash va lazer stomatologiyasidan tortib, aniq tashxis va minimal invaziv davolashni ta'minlaymiz.",
+        "stats": {
+          "xray": {
+            "value": "Raqamli",
+            "label": "Rentgen"
+          },
+          "scanning": {
+            "value": "3D",
+            "label": "Skanerlash"
+          }
+        }
+      },
+      "satisfaction": {
+        "title": "Bemor qulayligi va mamnuniyati",
+        "description": "An'anaviy klinikalardan farqli o'laroq, biz sedatsiya imkoniyatlari, moslashuvchan jadval va shaffof narxlar bilan sizning qulayligingizni ustuvor qo'yamiz. 99% bemor mamnuniyati darajamiz o'z-o'zidan gapiradi.",
+        "stats": {
+          "satisfied": {
+            "value": "99%",
+            "label": "Mamnun"
+          },
+          "support": {
+            "value": "24/7",
+            "label": "Qo'llab-quvvatlash"
+          }
+        }
+      },
+      "affordable": {
+        "title": "Hamyonbop sifatli parvarish",
+        "description": "Biz sifatli tish parvarishi hammabop bo'lishi kerak deb hisoblaymiz. Bizning shaffof narxlar, moslashuvchan to'lov rejalari va sug'urta qo'llab-quvvatlashi premium tish parvarishini hamma uchun hamyonbop qiladi.",
+        "stats": {
+          "interest": {
+            "value": "0%",
+            "label": "Foiz"
+          },
+          "transparent": {
+            "value": "100%",
+            "label": "Shaffof"
+          }
+        }
+      },
+      "emergency": {
+        "title": "Shoshilinch tish parvarishi",
+        "description": "Tish favqulodda holatlari kutib turmaydi, biz ham. Bizning maxsus favqulodda guruhimiz 24/7 ishlaydi va sizga eng qisqa vaqt ichida zarur yordamni ko'rsatadi.",
+        "stats": {
+          "available": {
+            "value": "24/7",
+            "label": "Mavjud"
+          },
+          "response": {
+            "value": "<30min",
+            "label": "Javob vaqti"
+          }
+        }
+      },
+      "family": {
+        "title": "Oilaviy muhit",
+        "description": "Go'daklardan tortib keksalargacha - biz butun oilaga xizmat ko'rsatamiz. Bizning bolalarga do'stona muhitimiz va tajribali xodimlarimiz barcha yoshdagi bemorlar uchun qulay tajribani ta'minlaydi.",
+        "stats": {
+          "ages": {
+            "value": "Barcha",
+            "label": "Yoshlar"
+          },
+          "rating": {
+            "value": "5",
+            "label": "Oilaviy reyting"
+          }
+        }
+      }
+    },
+    "cta": {
+      "title": "Yaxshiroq tish parvarishini his qilishga tayyormisiz?",
+      "description": "O'z tish salomatligini bizga ishongan minglab mamnun bemorlarga qo'shiling.",
+      "button": "Tashrifni rejalashtiring"
+    }
+  },
+  "CertificatesSection": {
+    "title": "Bizning sertifikatlarimiz",
+    "certificates": {
+      "excellence": {
+        "title": "Parvarishdagi mukammallik",
+        "description": "Bemorlarning yuqori darajadagi mamnuniyati uchun tan olingan",
+        "highlight": "2023 yilning eng yaxshisi"
+      },
+      "technology": {
+        "title": "Ilg'or texnologiyalar",
+        "description": "Zamonaviy uskunalar bilan yetakchilik",
+        "highlight": "Raqamli innovatsiyalar"
+      },
+      "trust": {
+        "title": "Bemorlar ishonchi",
+        "description": "Sifatli xizmat orqali uzoq muddatli munosabatlarni o'rnatamiz",
+        "highlight": "98% mamnuniyat"
+      }
+    },
+    "images": {
+      "cert1": "Stomatologik mukammallik sertifikati",
+      "cert2": "Xizmat ko'rsatish sifati sertifikati",
+      "cert3": "Professional mukammallik mukofoti",
+      "cert4": "Eng yaxshi amaliyot mukofoti"
+    }
+  },
+  "TestimonialsSection": {
+    "title": "Bemorlarimiz fikrlari",
+    "subtitle": "Hurmatli bemorlarimizning haqiqiy fikr-mulohazalari",
+    "testimonials": {
+      "testimonial1": {
+        "name": "Shoxjahon Sultonov",
+        "role": "Bemor",
+        "quote": "Hayotimdagi eng yaxshi stomatologik tajriba! Doktor Smit va butun jamoa menga qulay muhit va professional g'amxo'rlik ko'rsatishdi."
+      },
+      "testimonial2": {
+        "name": "Abduvaliyev Otabek",
+        "role": "Bemor",
+        "quote": "Ajoyib xizmat va professionallik. Ularning kosmetik stomatologiyadagi tajribasi tufayli tabasumim hech qachon bunday chiroyli ko'rinmagan."
+      },
+      "testimonial3": {
+        "name": "Saidaliyev Durbek",
+        "role": "Bemor",
+        "quote": "Ilgari stomatologlardan qo'rqardim, lekin bu klinika hamma narsani o'zgartirdi. Ularning muloyim yondashuvi va zamonaviy uskunalari ajoyib!"
+      }
+    }
+  },
+  "GallerySection": {
+    "title": "Bizning galereya",
+    "subtitle": "Zamonaviy jihozlarimiz va muvaffaqiyatli davolash natijalarimizni ko'ring",
+    "images": {
+      "1": {
+        "alt": "Zamonaviy stomatologiya xonasi"
+      },
+      "2": {
+        "alt": "Stomatologik tekshiruv"
+      },
+      "3": {
+        "alt": "Zamonaviy stomatologik uskunalar"
+      },
+      "4": {
+        "alt": "Chiroyli tabassum"
+      },
+      "5": {
+        "alt": "Professional stomatologlar jamoasi"
+      },
+      "6": {
+        "alt": "Stomatologik maslahat"
+      },
+      "7": {
+        "alt": "Stomatologik xizmat"
+      },
+      "8": {
+        "alt": "Stomatologik texnologiyalar"
+      },
+      "9": {
+        "alt": "Og'iz bo'shlig'i gigienasi"
+      },
+      "10": {
+        "alt": "Zamonaviy stomatologiya klinikasi"
+      }
+    }
+  },
+  "ContactForm": {
+    "title": "Biz bilan bog'laning",
+    "contactInfo": {
+      "title": "Bog'lanish ma'lumotlari",
+      "location": {
+        "label": "Manzil",
+        "address": "123 Dental Street, Medical District, New York, NY 10001"
+      },
+      "phone": {
+        "label": "Telefon",
+        "numbers": ["+1 (555) 123-4567", "+1 (555) 987-6543"]
+      },
+      "hours": {
+        "label": "Ish vaqti",
+        "weekdays": "Du - Ju: 9:00 - 19:00",
+        "saturday": "Sha: 9:00 - 17:00"
+      },
+      "email": {
+        "label": "Elektron pochta",
+        "addresses": ["info@dentalcare.com", "appointments@dentalcare.com"]
+      }
+    },
+    "social": {
+      "title": "Bizni kuzatib boring",
+      "facebook": "Facebook'da",
+      "twitter": "Twitter'da",
+      "instagram": "Instagram'da"
+    },
+    "form": {
+      "title": "Xabar yuborish",
+      "name": {
+        "label": "To'liq ism",
+        "placeholder": "Alisher Aliyev"
+      },
+      "phone": {
+        "label": "Telefon raqam",
+        "placeholder": "XX XXX XX XX"
+      },
+      "message": {
+        "label": "Xabar",
+        "placeholder": "Xabaringizni shu yerga yozing..."
+      },
+      "submit": "Yuborish",
+      "sending": "Yuborilmoqda...",
+      "success": "Xabar muvaffaqiyatli yuborildi! Tez orada siz bilan bog'lanamiz.",
+      "error": "Xabarni yuborib bo'lmadi. Iltimos, qayta urinib ko'ring."
+    }
+  },
+  "Footer": {
+    "brand": {
+      "name": "Dental Care",
+      "description": "Zamonaviy tish parvarishi va davolash xizmatlari"
+    },
+    "quickLinks": {
+      "title": "Tezkor havolalar",
+      "about": "Biz haqimizda",
+      "services": "Xizmatlarimiz",
+      "appointment": "Yozilish",
+      "contact": "Bog'lanish"
+    },
+    "contactInfo": {
+      "title": "Aloqa ma'lumotlari",
+      "address": "Toshkent shahri, Chilonzor tumani",
+      "phone": "+998 90 123 45 67",
+      "email": "info@dentalcare.uz"
+    },
+    "workingHours": {
+      "title": "Ish vaqti",
+      "weekdays": "Dushanba - Juma: 9:00 - 18:00",
+      "saturday": "Shanba: 10:00 - 16:00",
+      "sunday": "Yakshanba: Yopiq"
+    },
+    "copyright": " {year} Dental Care. Barcha huquqlar himoyalangan.",
+    "credits": {
+      "madeBy": "Sayt",
+      "suffix": "tomonidan qurildi"
+    }
+  },
+  "common": {
+    "cancel": "Bekor qilish",
+    "submit": "Yuborish",
+    "close": "Yopish"
+  }
+}
