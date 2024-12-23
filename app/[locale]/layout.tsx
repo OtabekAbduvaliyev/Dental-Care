@@ -1,3 +1,4 @@
+import React from 'react';
 import { NextIntlClientProvider } from 'next-intl';
 import { Inter } from "next/font/google";
 import "../globals.css";
@@ -22,15 +23,17 @@ async function getMessages(locale: string) {
 
 interface LocaleLayoutProps {
   children: React.ReactNode;
-  params: {
+  params: Promise<{
     locale: string;
-  };
+  }>;
 }
 
 export default async function LocaleLayout({
   children,
-  params: { locale }
-}: LocaleLayoutProps): Promise<JSX.Element | null> {
+  params
+}: LocaleLayoutProps): Promise<React.ReactElement | null> {
+  const { locale } = await params;
+
   // Validate that the incoming locale is supported
   if (!['uz', 'ru'].includes(locale)) {
     return null;

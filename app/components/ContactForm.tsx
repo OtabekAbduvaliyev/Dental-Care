@@ -1,6 +1,6 @@
 'use client';
 import { FaMapMarkerAlt, FaPhoneAlt, FaRegClock, FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { FaPaperPlane } from 'react-icons/fa';
 
@@ -13,16 +13,27 @@ interface FormData {
 interface ContactFormProps {
   isSubmitting: boolean;
   setIsSubmitting: (isSubmitting: boolean) => void;
+  submitStatus: { success?: boolean; message?: string } | null;
   setSubmitStatus: (status: { success: boolean; message: string } | null) => void;
 }
 
-export default function ContactForm({ isSubmitting, setIsSubmitting, setSubmitStatus }: ContactFormProps) {
+export default function ContactForm({ isSubmitting, setIsSubmitting, submitStatus, setSubmitStatus }: ContactFormProps) {
   const t = useTranslations('ContactForm');
   const [formData, setFormData] = useState<FormData>({
     name: '',
     phone: '',
     message: ''
   });
+
+  // Reset status message after 5 seconds
+  useEffect(() => {
+    if (submitStatus) {
+      const timer = setTimeout(() => {
+        setSubmitStatus(null);
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [submitStatus, setSubmitStatus]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -90,9 +101,6 @@ export default function ContactForm({ isSubmitting, setIsSubmitting, setSubmitSt
       });
     } finally {
       setIsSubmitting(false);
-      setTimeout(() => {
-        setSubmitStatus(null);
-      }, 5000);
     }
   };
 
@@ -228,17 +236,19 @@ export default function ContactForm({ isSubmitting, setIsSubmitting, setSubmitSt
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-300 flex items-center justify-center space-x-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                  className={`w-full md:w-auto px-8 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors flex items-center justify-center gap-2 ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
                 >
-                  <FaPaperPlane className="w-4 h-4" />
-                  <span>{isSubmitting ? t('form.sending') : t('form.submit')}</span>
+                  {isSubmitting ? t('sending') : t('send')}
+                  <FaPaperPlane className={`${isSubmitting ? 'animate-pulse' : ''}`} />
                 </button>
               </div>
-              {/* {submitStatus && (
-                <div className={`text-center p-3 rounded-lg ${submitStatus.success ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
+
+              {/* Status Message */}
+              {submitStatus && (
+                <div className={`mt-4 p-4 rounded-lg ${submitStatus.success ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
                   {submitStatus.message}
                 </div>
-              )} */}
+              )}
             </form>
           </div>
         </div>

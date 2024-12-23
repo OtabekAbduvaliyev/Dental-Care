@@ -1,7 +1,6 @@
 'use client';
 
-import DatePicker from 'react-datepicker';
-import "react-datepicker/dist/react-datepicker.css";
+import { AppointmentData } from '../types/appointment';
 import HeroSection from './HeroSection';
 import WhyUs from './WhyUs';
 import Testimonials from './TestimonialsSection';
@@ -11,14 +10,6 @@ import ContactForm from './ContactForm';
 import AppoitmentModal from './Modals/AppoitmentModal';
 import ServicesSection from './ServicesSection';
 import GallerySection from './GallerySection';
-
-interface AppointmentData {
-  name: string;
-  phone: string;
-  date: string | null;
-  time: string;
-  notes: string;
-}
 
 interface ClientHomePageProps {
   translations: Record<string, string>;
@@ -35,7 +26,7 @@ interface ClientHomePageProps {
   selectedService: string | null;
   setSelectedService: (service: string | null) => void;
   appointmentData: AppointmentData;
-  setAppointmentData: (data: AppointmentData) => void;
+  setAppointmentData: React.Dispatch<React.SetStateAction<AppointmentData>>;
 }
 
 export default function ClientHomePage({
@@ -80,12 +71,10 @@ export default function ClientHomePage({
         showModal={showModal}
         setShowModal={setShowModal}
         selectedService={selectedService}
-        handleAppointmentSubmit={() => {}}
-        handleModalPhoneChange={() => {}}
         appointmentData={appointmentData}
         setAppointmentData={setAppointmentData}
         isSubmitting={isSubmitting}
-        formatDate={() => {}}
+        setSubmitStatus={setSubmitStatus}
       />
       
       {showScheduleModal && (
@@ -145,22 +134,7 @@ export default function ClientHomePage({
                         />
                       </div>
                     </div>
-                    <div>
-                      <label htmlFor="schedule-date" className="block text-sm font-medium text-gray-700">Preferred Date</label>
-                      <DatePicker
-                        selected={appointmentData.date ? new Date(appointmentData.date) : null}
-                        onChange={(date: Date) => setAppointmentData({ ...appointmentData, date: date.toISOString().split('T')[0] })}
-                        minDate={new Date()}
-                        dateFormat="dd/MM/yyyy"
-                        className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                        placeholderText="Select a date"
-                        required
-                        filterDate={(date: Date) => {
-                          const day = date.getDay();
-                          return day !== 0 && day !== 6;
-                        }}
-                      />
-                    </div>
+
                     <div>
                       <label htmlFor="schedule-time" className="block text-sm font-medium text-gray-700">Preferred Time</label>
                       <input

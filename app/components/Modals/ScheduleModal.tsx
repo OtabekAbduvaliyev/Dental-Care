@@ -1,17 +1,13 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-
-interface AppointmentData {
-  name: string;
-  phone: string;
-}
+import { AppointmentData } from '../../types/appointment';
 
 interface ScheduleModalProps {
   showScheduleModal: boolean;
   setShowScheduleModal: (show: boolean) => void;
   appointmentData: AppointmentData;
-  setAppointmentData: (data: AppointmentData) => void;
+  setAppointmentData: React.Dispatch<React.SetStateAction<AppointmentData>>;
   isSubmitting: boolean;
   setSubmitStatus: (status: { success: boolean; message: string } | null) => void;
 }
@@ -37,37 +33,27 @@ export default function ScheduleModal({
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          service: 'General Inquiry',
-          name: appointmentData.name,
+          ...appointmentData,
           phone: formattedPhone,
-          date: new Date().toISOString().split('T')[0],
-          time: new Date().toLocaleTimeString(),
-          notes: 'Contact request from Schedule Modal'
-        }),
+          service: appointmentData.service || 'General Inquiry'
+        })
       });
 
-      if (response.ok) {
-        setShowScheduleModal(false);
-        setAppointmentData({ name: '', phone: '' });
-        setSubmitStatus({
-          success: true,
-          message: t('schedule.successMessage')
-        });
-        setTimeout(() => {
-          setSubmitStatus(null);
-        }, 5000);
-      } else {
-        throw new Error('Failed to send message');
+      if (!response.ok) {
+        throw new Error('Failed to submit appointment');
       }
-    } catch (error) {
-      console.error('Error sending message:', error);
+
+      setSubmitStatus({
+        success: true,
+        message: t('appointment.success')
+      });
+      setShowScheduleModal(false);
+      setAppointmentData(prev => ({ ...prev, name: '', phone: '', service: '' }));
+    } catch {
       setSubmitStatus({
         success: false,
-        message: t('schedule.errorMessage')
+        message: t('appointment.error')
       });
-      setTimeout(() => {
-        setSubmitStatus(null);
-      }, 5000);
     }
   };
 
@@ -147,6 +133,16 @@ export default function ScheduleModal({
                           pattern="[0-9]{2} [0-9]{3} [0-9]{2} [0-9]{2}"
                         />
                       </div>
+                    </div>
+                    <div>
+                      <label htmlFor="schedule-service" className="block text-sm font-medium text-gray-700">{t('schedule.service')}</label>
+                      <input
+                        type="text"
+                        id="schedule-service"
+                        className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                        value={appointmentData.service}
+                        onChange={(e) => setAppointmentData({ ...appointmentData, service: e.target.value })}
+                      />
                     </div>
                     <div className="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
                       <button

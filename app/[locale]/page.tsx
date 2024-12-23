@@ -1,8 +1,5 @@
 'use client';
 
-import { Metadata } from 'next';
-import { useParams } from 'next/navigation';
-import { metadata as siteMetadata } from '../metadata';
 import HeroSection from '../components/HeroSection';
 import WhyUs from '../components/WhyUs';
 import Testimonials from '../components/TestimonialsSection';
@@ -14,24 +11,7 @@ import ScheduleModal from '../components/Modals/ScheduleModal';
 import ServicesSection from '../components/ServicesSection';
 import GallerySection from '../components/GallerySection';
 import { useState } from 'react';
-
-export async function generateMetadata(): Promise<Metadata> {
-  const params = useParams();
-  const locale = (params?.locale as string) || 'uz';
-  const meta = siteMetadata[locale];
-
-  return {
-    title: meta.title,
-    description: meta.description,
-    keywords: meta.keywords,
-    openGraph: {
-      title: meta.title,
-      description: meta.description,
-      locale: locale,
-      type: 'website',
-    },
-  };
-}
+import { AppointmentData } from '../types/appointment';
 
 export default function HomePage() {
   const [showAllServices, setShowAllServices] = useState(false);
@@ -40,9 +20,13 @@ export default function HomePage() {
   const [showModal, setShowModal] = useState(false);
   const [showScheduleModal, setShowScheduleModal] = useState(false);
   const [selectedService, setSelectedService] = useState<string | null>(null);
-  const [appointmentData, setAppointmentData] = useState({
+  const [appointmentData, setAppointmentData] = useState<AppointmentData>({
     name: '',
     phone: '',
+    service: '',
+    date: null,
+    time: '',
+    notes: ''
   });
 
   return (
@@ -71,13 +55,10 @@ export default function HomePage() {
         showModal={showModal}
         setShowModal={setShowModal}
         selectedService={selectedService}
-        handleAppointmentSubmit={() => {}}
-        handleModalPhoneChange={() => {}}
         appointmentData={appointmentData}
         setAppointmentData={setAppointmentData}
         isSubmitting={isSubmitting}
         setSubmitStatus={setSubmitStatus}
-        formatDate={() => {}}
       />
       
       <ScheduleModal

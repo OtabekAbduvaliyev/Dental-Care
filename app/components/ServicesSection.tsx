@@ -3,10 +3,11 @@
 import { FaCheckCircle, FaClock, FaRegHospital, FaSmile, FaTooth, FaUserMd, FaHeartbeat, FaTeeth, FaBrain } from "react-icons/fa";
 import { MdHealthAndSafety, MdMedicalServices, MdCleaningServices } from "react-icons/md";
 import { useTranslations } from 'next-intl';
+import { AppointmentData } from '../types/appointment';
 
 interface ServicesSectionProps {
   setSelectedService: (service: string) => void;
-  setAppointmentData: (data: { service: string } | ((prev: { service: string }) => { service: string })) => void;
+  setAppointmentData: React.Dispatch<React.SetStateAction<AppointmentData>>;
   setShowAllServices: (show: boolean) => void;
   showAllServices: boolean;
   setShowModal: (show: boolean) => void;
