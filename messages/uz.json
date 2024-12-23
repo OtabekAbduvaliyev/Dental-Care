@@ -26,7 +26,9 @@
       "cancel": "Bekor qilish",
       "successMessage": "Sizning arizangiz muvaffaqiyatli yuborildi!",
       "errorMessage": "Arizani yuborishda xatolik yuz berdi. Iltimos, qayta urinib ko'ring."
-    }
+    },
+    "appointmentFor": "Quyidagi xizmat uchun yozilish:",
+    "service": "Xizmat"
   },
   "Navbar": {
     "home": "Bosh sahifa",
@@ -454,7 +456,9 @@
       "sending": "Yuborilmoqda...",
       "success": "Xabar muvaffaqiyatli yuborildi! Tez orada siz bilan bog'lanamiz.",
       "error": "Xabarni yuborib bo'lmadi. Iltimos, qayta urinib ko'ring."
-    }
+    },
+    "send": "Yuborish",
+    "sending": "Yuborilmoqda..."
   },
   "Footer": {
     "brand": {
