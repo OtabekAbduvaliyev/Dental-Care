@@ -31,11 +31,15 @@ export default function AppoitmentModal({
       setAppointmentData({
         name: '',
         phone: '',
+        service: selectedService || '',
+        date: null,
+        time: '',
+        notes: ''
       });
       // Reset any status messages
       setSubmitStatus(null);
     }
-  }, [showModal, setAppointmentData, setSubmitStatus]);
+  }, [showModal, setAppointmentData, setSubmitStatus, selectedService]);
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
