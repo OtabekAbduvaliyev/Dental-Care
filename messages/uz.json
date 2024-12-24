@@ -43,8 +43,8 @@
   },
   "Home": {
     "welcomeMessage": "Yangi bemorlarni kutib qolamiz",
-    "heroTitle": "Zamonaviy tish parvarishi",
-    "heroHighlight": "Oilangiz uchun",
+    "heroTitle": "Tishingiz uchun",
+    "heroHighlight": "Eng yaxshilaridan biri",
     "heroSubtitle": "Qulay va zamonaviy muhitda yuqori sifatli tish parvarishi xizmatidan bahramand bo'ling",
     "heroImageAlt": "Zamonaviy tish klinikasi",
     "bookNow": "Yozilish",
@@ -57,7 +57,7 @@
     "learnMore": "Ko'proq ma'lumot"
   },
   "Services": {
-    "sectionTitle": "Bizning xizmatlarimiz",
+    "sectionTitle": "Sizga moslashtirilgan tibbiy yechimlar",
     "sectionSubtitle": "Sizning ehtiyojlaringizga moslashtirilgan professional tish parvarishi",
     "popular": "Mashhur",
     "duration": "45-60 daqiqa",
@@ -232,7 +232,7 @@
     }
   },
   "WhyUs": {
-    "sectionTitle": "Nima uchun bizning tish klinikamizni tanlashingiz kerak?",
+    "sectionTitle": "Nega aynan bizining klinika?",
     "sectionDescription": "Biz mukammallikka intilish, zamonaviy texnologiyalar va bemorga yo'naltirilgan yondashuv orqali boshqa tish klinikalaridan ajralib turamiz. Bizni tish parvarishi bo'yicha afzal tanlovga aylantirgan farqni his eting.",
     "since": "Dan beri",
     "features": {
@@ -411,7 +411,7 @@
     }
   },
   "ContactForm": {
-    "title": "Biz bilan bog'laning",
+    "title": "Tez va oson davolanish uchun hozir biz bilan bog‘laning!",
     "contactInfo": {
       "title": "Bog'lanish ma'lumotlari",
       "location": {
