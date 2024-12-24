@@ -7,13 +7,33 @@ export const metadata: Metadata = {
   keywords: 'tish shifokori, tish klinikasi, tish parvarishi, tishlarni tozalash, ortodontiya, kosmetik stomatologiya, shoshilinch tish shifokori',
   authors: [{ name: 'DentCare' }],
   icons: {
-    icon: '/images/logo.jpg',
+    icon: [
+      {
+        url: '/images/logo.jpg',
+        sizes: '32x32',
+        type: 'image/jpg',
+      },
+      {
+        url: '/images/logo.jpg',
+        sizes: '16x16',
+        type: 'image/jpg',
+      }
+    ],
+    apple: [
+      {
+        url: '/images/logo.jpg',
+        sizes: '180x180',
+        type: 'image/jpg',
+      }
+    ],
     shortcut: '/images/logo.jpg',
-    apple: '/images/logo.jpg',
-    other: {
-      rel: 'apple-touch-icon-precomposed',
-      url: '/images/logo.jpg',
-    },
+    other: [
+      {
+        rel: 'mask-icon',
+        url: '/images/logo.jpg',
+        color: '#ffffff'
+      }
+    ],
   },
   openGraph: {
     title: 'DentCare - Professional Tish Klinikasi',
