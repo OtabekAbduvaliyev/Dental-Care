@@ -9,14 +9,16 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/images/logo.jpg',
-        sizes: '32x32',
-        type: 'image/jpg',
-      },
+        rel: 'icon',
+        url: '/images/logo.ico',
+        sizes: 'any',
+        type: 'image/x-icon',
+      }
+    ],
+    shortcut: [
       {
-        url: '/images/logo.jpg',
-        sizes: '16x16',
-        type: 'image/jpg',
+        url: '/images/logo.ico',
+        type: 'image/x-icon'
       }
     ],
     apple: [
@@ -26,7 +28,6 @@ export const metadata: Metadata = {
         type: 'image/jpg',
       }
     ],
-    shortcut: '/images/logo.jpg',
     other: [
       {
         rel: 'mask-icon',
