@@ -134,16 +134,6 @@ export default function ScheduleModal({
                         />
                       </div>
                     </div>
-                    <div>
-                      <label htmlFor="schedule-service" className="block text-sm font-medium text-gray-700">{t('schedule.service')}</label>
-                      <input
-                        type="text"
-                        id="schedule-service"
-                        className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                        value={appointmentData.service}
-                        onChange={(e) => setAppointmentData({ ...appointmentData, service: e.target.value })}
-                      />
-                    </div>
                     <div className="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
                       <button
                         type="submit"

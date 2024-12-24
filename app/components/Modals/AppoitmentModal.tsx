@@ -27,7 +27,7 @@ export default function AppoitmentModal({
 
   useEffect(() => {
     if (!showModal) {
-      // Reset form data when modal is closed
+      // Reset form data when modal is closed, but don't reset status
       setAppointmentData({
         name: '',
         phone: '',
@@ -36,10 +36,8 @@ export default function AppoitmentModal({
         time: '',
         notes: ''
       });
-      // Reset any status messages
-      setSubmitStatus(null);
     }
-  }, [showModal, setAppointmentData, setSubmitStatus, selectedService]);
+  }, [showModal, setAppointmentData, selectedService]);
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -62,6 +60,10 @@ export default function AppoitmentModal({
       });
 
       if (response.ok) {
+        setSubmitStatus({
+          success: true,
+          message: t('appointment.successMessage')
+        });
         setShowModal(false);
         setAppointmentData({
           name: '',
@@ -70,10 +72,6 @@ export default function AppoitmentModal({
           date: null,
           time: '',
           notes: ''
-        });
-        setSubmitStatus({
-          success: true,
-          message: t('appointment.successMessage')
         });
         setTimeout(() => {
           setSubmitStatus(null);

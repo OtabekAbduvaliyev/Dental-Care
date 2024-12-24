@@ -1,5 +1,7 @@
 {
   "Index": {
+    "service": "услугу",
+    "appointmentFor": "Запись на",
     "schedule": {
       "title": "Записаться на прием",
       "name": "Полное имя",

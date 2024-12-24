@@ -243,17 +243,10 @@ export default function ContactForm({ isSubmitting, setIsSubmitting, submitStatu
                   disabled={isSubmitting}
                   className={`w-full md:w-auto px-8 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors flex items-center justify-center gap-2 ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
                 >
-                  {isSubmitting ? t('sending') : t('send')}
+                  {isSubmitting ? t('form.sending') : t('form.submit')}
                   <FaPaperPlane className={`${isSubmitting ? 'animate-pulse' : ''}`} />
                 </button>
               </div>
-
-              {/* Status Message */}
-              {submitStatus && (
-                <div className={`mt-4 p-4 rounded-lg ${submitStatus.success ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
-                  {submitStatus.message}
-                </div>
-              )}
             </form>
           </div>
         </div>
