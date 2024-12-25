@@ -10,8 +10,8 @@ export default function WhyUs() {
 
   const whyUsFeatures = [
     {
-      icon: <MdHealthAndSafety size={24} />,
-      displayIcon: <MdHealthAndSafety size={40} className="text-blue-600 group-hover:text-blue-700 transition-colors" />,
+      icon: <MdHealthAndSafety size={24} className="text-gray-700 dark:text-gray-300" />,
+      displayIcon: <MdHealthAndSafety size={40} className="text-blue-600 dark:text-blue-400 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors" />,
       title: t('features.expert.title'),
       description: t('features.expert.description'),
       stats: [
@@ -21,8 +21,8 @@ export default function WhyUs() {
       image: "/images/why-us/patient-first.jpg"
     },
     {
-      icon: <MdMedicalServices size={24} />,
-      displayIcon: <MdMedicalServices size={40} className="text-blue-600 group-hover:text-blue-700 transition-colors" />,
+      icon: <MdMedicalServices size={24} className="text-gray-700 dark:text-gray-300" />,
+      displayIcon: <MdMedicalServices size={40} className="text-blue-600 dark:text-blue-400 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors" />,
       title: t('features.technology.title'),
       description: t('features.technology.description'),
       stats: [
@@ -32,8 +32,8 @@ export default function WhyUs() {
       image: "/images/why-us/modern-equipment.jpg"
     },
     {
-      icon: <FaRegSmile size={24} />,
-      displayIcon: <FaRegSmile size={40} className="text-blue-600 group-hover:text-blue-700 transition-colors" />,
+      icon: <FaRegSmile size={24} className="text-gray-700 dark:text-gray-300" />,
+      displayIcon: <FaRegSmile size={40} className="text-blue-600 dark:text-blue-400 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors" />,
       title: t('features.satisfaction.title'),
       description: t('features.satisfaction.description'),
       stats: [
@@ -43,8 +43,8 @@ export default function WhyUs() {
       image: "/images/why-us/comfortable-care.jpg"
     },
     {
-      icon: <MdPayments size={24} />,
-      displayIcon: <MdPayments size={40} className="text-blue-600 group-hover:text-blue-700 transition-colors" />,
+      icon: <MdPayments size={24} className="text-gray-700 dark:text-gray-300" />,
+      displayIcon: <MdPayments size={40} className="text-blue-600 dark:text-blue-400 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors" />,
       title: t('features.affordable.title'),
       description: t('features.affordable.description'),
       stats: [
@@ -54,8 +54,8 @@ export default function WhyUs() {
       image: "/images/why-us/affordable-care.jpg"
     },
     {
-      icon: <MdEmergency size={24} />,
-      displayIcon: <MdEmergency size={40} className="text-blue-600 group-hover:text-blue-700 transition-colors" />,
+      icon: <MdEmergency size={24} className="text-gray-700 dark:text-gray-300" />,
+      displayIcon: <MdEmergency size={40} className="text-blue-600 dark:text-blue-400 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors" />,
       title: t('features.emergency.title'),
       description: t('features.emergency.description'),
       stats: [
@@ -65,8 +65,8 @@ export default function WhyUs() {
       image: "/images/why-us/emargency-care.jpg"
     },
     {
-      icon: <FaUsers size={24} />,
-      displayIcon: <FaUsers size={40} className="text-blue-600 group-hover:text-blue-700 transition-colors" />,
+      icon: <FaUsers size={24} className="text-gray-700 dark:text-gray-300" />,
+      displayIcon: <FaUsers size={40} className="text-blue-600 dark:text-blue-400 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors" />,
       title: t('features.family.title'),
       description: t('features.family.description'),
       stats: [
@@ -79,16 +79,16 @@ export default function WhyUs() {
 
   return (
     <section className="py-24 relative" id="whyus">
-      <div className="absolute inset-0 bg-gradient-to-b from-white to-gray-50"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-50"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#374151_1px,transparent_1px)] [background-size:16px_16px] opacity-50"></div>
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-20">
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
             {t('sectionTitle')}
           </h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
-          <p className="text-xl text-gray-600 leading-relaxed">
+          <div className="w-20 h-1 bg-blue-600 dark:bg-blue-500 mx-auto mb-6"></div>
+          <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
             {t('sectionDescription')}
           </p>
         </div>
@@ -111,13 +111,13 @@ export default function WhyUs() {
               </div>
 
               {/* Icon Badge */}
-              <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm p-2 rounded-xl">
+              <div className="absolute top-4 left-4 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-2 rounded-xl">
                 {feature.displayIcon}
               </div>
 
               {/* Experience Badge */}
-              <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
-                <span className="text-sm font-medium text-gray-800">
+              <div className="absolute top-4 right-4 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm px-3 py-1 rounded-full">
+                <span className="text-sm font-medium text-gray-800 dark:text-gray-200">
                   {feature.stats[0].value} {feature.stats[0].label}
                 </span>
               </div>
@@ -158,16 +158,16 @@ export default function WhyUs() {
         </div>
 
         {/* Bottom Section */}
-        <div className="mt-20 bg-gray-50 rounded-2xl p-8 md:p-12">
+        <div className="mt-20 bg-gray-50 dark:bg-gray-800/50 rounded-2xl p-8 md:p-12">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
                 {t('cta.title')}
               </h3>
-              <p className="text-gray-600 mb-6">
+              <p className="text-gray-600 dark:text-gray-300 mb-6">
                 {t('cta.description')}
               </p>
-              <button className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+              <button className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-500 transition-colors">
                 {t('cta.button')}
               </button>
             </div>
@@ -175,10 +175,10 @@ export default function WhyUs() {
               <div className="grid grid-cols-2 gap-4">
                 {whyUsFeatures.map((feature, index) => (
                   <div key={index} className="flex items-center gap-2">
-                    <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-sm">
+                    <div className="w-10 h-10 bg-white dark:bg-gray-700 rounded-lg flex items-center justify-center shadow-sm">
                       {feature.icon}
                     </div>
-                    <span className="text-sm font-medium text-gray-700">{feature.title}</span>
+                    <span className="text-sm font-medium text-gray-700 dark:text-gray-200">{feature.title}</span>
                   </div>
                 ))}
               </div>

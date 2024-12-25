@@ -6,6 +6,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { unstable_setRequestLocale } from 'next-intl/server';
 import JsonLd from '../components/JsonLd';
+import { ThemeProvider } from '../context/ThemeContext';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -46,20 +47,26 @@ export default async function LocaleLayout({
   const messages = await getMessages(locale);
 
   return (
-    <html lang={locale}>
+    <html lang={locale} className={inter.className}>
       <head>
         <JsonLd />
       </head>
-      <body className={inter.className}>
-        <NextIntlClientProvider messages={messages} locale={locale}>
-          <div className="flex flex-col min-h-screen">
-            <Navbar />
-            <main className="flex-grow">
-              {children}
-            </main>
-            <Footer />
-          </div>
-        </NextIntlClientProvider>
+      <body className={`min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300 ${inter.className}`}>
+        <ThemeProvider>
+          <NextIntlClientProvider
+            locale={locale}
+            messages={messages}
+            timeZone="Asia/Tashkent"
+          >
+            <div className="flex flex-col min-h-screen">
+              <Navbar />
+              <main className="flex-grow">
+                {children}
+              </main>
+              <Footer />
+            </div>
+          </NextIntlClientProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

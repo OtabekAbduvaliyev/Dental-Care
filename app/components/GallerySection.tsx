@@ -1,10 +1,10 @@
 'use client'
-import React from 'react'
+import React, { useState, useCallback } from 'react'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useTranslations } from 'next-intl'
+import { FaTimes, FaArrowLeft, FaArrowRight } from 'react-icons/fa'
 
-// Sample gallery data - replace with your actual images
 const galleryImages = [
     {
         id: 1,
@@ -66,43 +66,166 @@ const galleryImages = [
         width: 800,
         height: 700,
     }
-]
+];
 
 const GallerySection = () => {
     const t = useTranslations('GallerySection');
+    const [selectedImage, setSelectedImage] = useState<number | null>(null);
+
+    const handleImageClick = useCallback((id: number) => {
+        setSelectedImage(id);
+        document.body.style.overflow = 'hidden';
+    }, []);
+
+    const handleCloseModal = useCallback(() => {
+        setSelectedImage(null);
+        document.body.style.overflow = 'unset';
+    }, []);
+
+    const handleNavigate = useCallback((direction: 'prev' | 'next') => {
+        if (!selectedImage) return;
+        
+        const currentIndex = galleryImages.findIndex(img => img.id === selectedImage);
+        let newIndex;
+        
+        if (direction === 'prev') {
+            newIndex = currentIndex > 0 ? currentIndex - 1 : galleryImages.length - 1;
+        } else {
+            newIndex = currentIndex < galleryImages.length - 1 ? currentIndex + 1 : 0;
+        }
+        
+        setSelectedImage(galleryImages[newIndex].id);
+    }, [selectedImage]);
+
+    const handleKeyDown = useCallback((e: KeyboardEvent) => {
+        if (e.key === 'Escape') handleCloseModal();
+        if (e.key === 'ArrowLeft') handleNavigate('prev');
+        if (e.key === 'ArrowRight') handleNavigate('next');
+    }, [handleCloseModal, handleNavigate]);
+
+    React.useEffect(() => {
+        if (selectedImage) {
+            window.addEventListener('keydown', handleKeyDown);
+            return () => window.removeEventListener('keydown', handleKeyDown);
+        }
+    }, [selectedImage, handleKeyDown]);
 
     return (
         <section className="py-16 relative" id="gallery">
-            <div className="absolute inset-0 bg-gray-50"></div>
-            <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-50"></div>
+            <div className="absolute inset-0 bg-gray-50 dark:bg-gray-900"></div>
+            <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#374151_1px,transparent_1px)] [background-size:16px_16px] opacity-50"></div>
+            
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
                 <div className="text-center mb-12">
-                    <h2 className="text-4xl font-bold text-gray-900 mb-4">{t('title')}</h2>
-                    <p className="text-lg text-gray-600">{t('subtitle')}</p>
+                    <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">{t('title')}</h2>
+                    <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">{t('subtitle')}</p>
                 </div>
                 
-                <div className="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
-                    {galleryImages.map((image) => (
+                <motion.div 
+                    layout
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                >
+                    <AnimatePresence>
+                        {galleryImages.map((image) => (
+                            <motion.div
+                                layout
+                                key={image.id}
+                                className="aspect-[4/3] relative cursor-zoom-in"
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, scale: 0.8 }}
+                                transition={{ duration: 0.3 }}
+                                onClick={() => handleImageClick(image.id)}
+                            >
+                                <div className="absolute inset-0 rounded-lg overflow-hidden shadow-lg hover:shadow-xl dark:shadow-gray-900/30 transition-all duration-300 transform hover:-translate-y-1">
+                                    <Image
+                                        src={image.src}
+                                        alt={t(`images.${image.id}.alt`)}
+                                        fill
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                        className="object-cover"
+                                        placeholder="blur"
+                                        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQdHx4eHRoaHSQtJSEkLzYvLy02ODM6RkZGODNQdXl9drG1un+Ki4yQkJCQkJCQkJCQkJD/2wBDARUXFyAeIB4gHh4gICAgKCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICD/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+                                    />
+                                </div>
+                            </motion.div>
+                        ))}
+                    </AnimatePresence>
+                </motion.div>
+
+                {/* Minimalist Image Preview Modal */}
+                <AnimatePresence>
+                    {selectedImage && (
                         <motion.div
-                            key={image.id}
-                            className="break-inside-avoid"
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5 }}
-                            viewport={{ once: true }}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="fixed inset-0 z-50 bg-black/95 dark:bg-black/98"
                         >
-                            <div className="relative rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-                                <Image
-                                    src={image.src}
-                                    alt={t(`images.${image.id}.alt`)}
-                                    width={image.width}
-                                    height={image.height}
-                                    className="w-full h-auto object-cover"
-                                />
+                            <div className="absolute inset-0 flex items-center justify-center">
+                                <button
+                                    onClick={handleCloseModal}
+                                    className="absolute top-4 right-4 text-white/70 hover:text-white dark:text-gray-400 dark:hover:text-white transition-colors z-50"
+                                    aria-label="Close preview"
+                                >
+                                    <FaTimes size={24} />
+                                </button>
+
+                                {/* Navigation Buttons */}
+                                <button
+                                    onClick={() => handleNavigate('prev')}
+                                    className="absolute left-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white dark:text-gray-400 dark:hover:text-white transition-colors"
+                                    aria-label="Previous image"
+                                >
+                                    <FaArrowLeft size={24} />
+                                </button>
+                                <button
+                                    onClick={() => handleNavigate('next')}
+                                    className="absolute right-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white dark:text-gray-400 dark:hover:text-white transition-colors"
+                                    aria-label="Next image"
+                                >
+                                    <FaArrowRight size={24} />
+                                </button>
+
+                                {/* Image Container */}
+                                <motion.div
+                                    initial={{ scale: 0.9, opacity: 0 }}
+                                    animate={{ scale: 1, opacity: 1 }}
+                                    exit={{ scale: 0.9, opacity: 0 }}
+                                    className="relative w-[800px] mx-auto bg-white/5 dark:bg-gray-900/30 rounded-2xl p-2 backdrop-blur-sm modal-container"
+                                >
+                                    <div className="relative w-full h-[600px] modal-image-container">
+                                        <Image
+                                            src={galleryImages.find(img => img.id === selectedImage)?.src || ''}
+                                            alt={t(`images.${selectedImage}.alt`)}
+                                            fill
+                                            className="object-cover rounded-xl"
+                                            quality={100}
+                                        />
+                                        <div className="absolute bottom-0 left-0 right-0 p-4 text-center bg-gradient-to-t from-black/50 to-transparent dark:from-black/70 rounded-b-xl">
+                                            <p className="text-white/90 dark:text-white text-sm font-medium">
+                                                {t(`images.${selectedImage}.alt`)}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </motion.div>
+
+                                {/* Mobile Responsive Adjustment */}
+                                <style jsx global>{`
+                                    @media (max-width: 850px) {
+                                        .modal-container {
+                                            width: 90vw !important;
+                                            height: auto !important;
+                                        }
+                                        .modal-image-container {
+                                            height: 70vh !important;
+                                        }
+                                    }
+                                `}</style>
                             </div>
                         </motion.div>
-                    ))}
-                </div>
+                    )}
+                </AnimatePresence>
             </div>
         </section>
     )

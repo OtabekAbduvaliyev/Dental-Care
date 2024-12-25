@@ -28,32 +28,32 @@ export default function CertificatesSection() {
   ];
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-white dark:bg-gray-900">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Certificates and Image Grid */}
       <div className="grid lg:grid-cols-2 gap-12 items-center mt-20">
         {/* Left side - Certificates */}
         <div className="space-y-8">
           <div className="mb-8">
-            <h2 className="text-3xl font-semibold text-gray-900 mb-4">
+            <h2 className="text-3xl font-semibold text-gray-900 dark:text-white mb-4">
               {t('title')}
             </h2>
-            <div className="w-16 h-1 bg-blue-600"></div>
+            <div className="w-16 h-1 bg-blue-600 dark:bg-blue-500"></div>
           </div>
           
           <div className="space-y-6">
             {certificates.map((item) => (
               <div 
                 key={item.id} 
-                className="p-6 bg-gray-50 rounded-lg hover:shadow-lg transition-all duration-300"
+                className="p-6 bg-gray-50 dark:bg-gray-800 rounded-lg hover:shadow-lg dark:hover:shadow-gray-900/30 transition-all duration-300"
               >
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                   {item.title}
                 </h3>
-                <p className="text-gray-600 mb-4">
+                <p className="text-gray-600 dark:text-gray-300 mb-4">
                   {item.description}
                 </p>
-                <span className="inline-block px-4 py-2 bg-white text-blue-600 rounded-full text-sm font-medium">
+                <span className="inline-block px-4 py-2 bg-white dark:bg-gray-700 text-blue-600 dark:text-blue-400 rounded-full text-sm font-medium">
                   {item.highlight}
                 </span>
               </div>
@@ -65,7 +65,7 @@ export default function CertificatesSection() {
         <div className="relative">
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-4">
-              <div className="relative aspect-[3/4] rounded-lg overflow-hidden bg-gray-100">
+              <div className="relative aspect-[3/4] rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-800">
                 <Image
                   src="/certificate1.jpg"
                   alt={t('images.cert1')}
@@ -73,7 +73,7 @@ export default function CertificatesSection() {
                   className="object-cover hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <div className="relative aspect-[3/4] rounded-lg overflow-hidden bg-gray-100">
+              <div className="relative aspect-[3/4] rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-800">
                 <Image
                   src="/certificate2.jpg"
                   alt={t('images.cert2')}
@@ -83,7 +83,7 @@ export default function CertificatesSection() {
               </div>
             </div>
             <div className="space-y-4 mt-8">
-              <div className="relative aspect-[3/4] rounded-lg overflow-hidden bg-gray-100">
+              <div className="relative aspect-[3/4] rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-800">
                 <Image
                   src="/certificate3.jpg"
                   alt={t('images.cert3')}
@@ -91,7 +91,7 @@ export default function CertificatesSection() {
                   className="object-cover hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <div className="relative aspect-[3/4] rounded-lg overflow-hidden bg-gray-100">
+              <div className="relative aspect-[3/4] rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-800">
                 <Image
                   src="/certificate4.jpg"
                   alt={t('images.cert4')}
@@ -103,8 +103,8 @@ export default function CertificatesSection() {
           </div>
           
           {/* Decorative Elements */}
-          <div className="absolute -top-4 -right-4 w-24 h-24 bg-blue-50 rounded-full -z-10"></div>
-          <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gray-50 rounded-full -z-10"></div>
+          <div className="absolute -top-4 -right-4 w-24 h-24 bg-blue-50 dark:bg-blue-900/20 rounded-full -z-10"></div>
+          <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gray-50 dark:bg-gray-800 rounded-full -z-10"></div>
         </div>
       </div>
     </div>
