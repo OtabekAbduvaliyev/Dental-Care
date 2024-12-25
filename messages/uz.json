@@ -25,7 +25,9 @@
       "submit": "Yozilish",
       "cancel": "Bekor qilish",
       "successMessage": "Sizning arizangiz muvaffaqiyatli yuborildi!",
-      "errorMessage": "Arizani yuborishda xatolik yuz berdi. Iltimos, qayta urinib ko'ring."
+      "errorMessage": "Arizani yuborishda xatolik yuz berdi. Iltimos, qayta urinib ko'ring.",
+      "success": "Sizning arizangiz muvaffaqiyatli yuborildi! Tez orada siz bilan bog'lanamiz.",
+      "error": "Xatolik yuz berdi. Iltimos, qayta urinib ko'ring."
     },
     "appointmentFor": "Quyidagi xizmat uchun yozilish:",
     "service": "Xizmat"
