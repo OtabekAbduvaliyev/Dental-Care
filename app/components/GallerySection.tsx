@@ -128,9 +128,9 @@ const GallerySection = () => {
                     <AnimatePresence>
                         {galleryImages.map((image) => (
                             <motion.div
-                                layout
                                 key={image.id}
-                                className="aspect-[4/3] relative cursor-zoom-in"
+                                layout
+                                className="aspect-[4/3] relative cursor-zoom-in w-full"
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, scale: 0.8 }}
@@ -163,6 +163,7 @@ const GallerySection = () => {
                             className="fixed inset-0 z-50 bg-black/95 dark:bg-black/98"
                         >
                             <div className="absolute inset-0 flex items-center justify-center">
+                                {/* Close button */}
                                 <button
                                     onClick={handleCloseModal}
                                     className="absolute top-4 right-4 text-white/70 hover:text-white dark:text-gray-400 dark:hover:text-white transition-colors z-50"
@@ -172,20 +173,44 @@ const GallerySection = () => {
                                 </button>
 
                                 {/* Navigation Buttons */}
-                                <button
-                                    onClick={() => handleNavigate('prev')}
-                                    className="absolute left-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white dark:text-gray-400 dark:hover:text-white transition-colors"
-                                    aria-label="Previous image"
-                                >
-                                    <FaArrowLeft size={24} />
-                                </button>
-                                <button
-                                    onClick={() => handleNavigate('next')}
-                                    className="absolute right-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white dark:text-gray-400 dark:hover:text-white transition-colors"
-                                    aria-label="Next image"
-                                >
-                                    <FaArrowRight size={24} />
-                                </button>
+                                <div className="hidden sm:block">
+                                    <button
+                                        onClick={() => handleNavigate('prev')}
+                                        className="absolute left-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white dark:text-gray-400 dark:hover:text-white transition-colors"
+                                        aria-label="Previous image"
+                                    >
+                                        <FaArrowLeft size={24} />
+                                    </button>
+                                    <button
+                                        onClick={() => handleNavigate('next')}
+                                        className="absolute right-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white dark:text-gray-400 dark:hover:text-white transition-colors"
+                                        aria-label="Next image"
+                                    >
+                                        <FaArrowRight size={24} />
+                                    </button>
+                                </div>
+
+                                {/* Mobile Navigation Buttons */}
+                                <div className="sm:hidden absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-8 z-50">
+                                    <motion.button
+                                        initial={{ x: -20, opacity: 0 }}
+                                        animate={{ x: 0, opacity: 1 }}
+                                        onClick={() => handleNavigate('prev')}
+                                        className="w-12 h-12 flex items-center justify-center rounded-full bg-white/10 text-white/90 hover:text-white hover:bg-white/20 transition-all"
+                                        aria-label="Previous image"
+                                    >
+                                        <FaArrowLeft size={20} />
+                                    </motion.button>
+                                    <motion.button
+                                        initial={{ x: 20, opacity: 0 }}
+                                        animate={{ x: 0, opacity: 1 }}
+                                        onClick={() => handleNavigate('next')}
+                                        className="w-12 h-12 flex items-center justify-center rounded-full bg-white/10 text-white/90 hover:text-white hover:bg-white/20 transition-all"
+                                        aria-label="Next image"
+                                    >
+                                        <FaArrowRight size={20} />
+                                    </motion.button>
+                                </div>
 
                                 {/* Image Container */}
                                 <motion.div
